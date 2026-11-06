@@ -1,0 +1,9 @@
+node_modules/
+dist/
+server/data/*.db
+server/data/*.db-journal
+*.log
+.DS_Store
+
+# 本地对话记录，不上传
+conversation-*

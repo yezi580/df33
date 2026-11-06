@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎧</text></svg>"
+    />
+    <title>三角洲赛季任务组队大厅 · 赛季任务 · 开黑 · 实时语音</title>
+    <script>
+      // 预渲染定题：有存档用存档，否则跟随系统偏好（在首帧前执行，避免暗色闪白/亮色闪黑）
+      ;(function () {
+        var saved = localStorage.getItem('df33-theme')
+        var dark
+        if (saved) dark = saved === 'dark'
+        else if (window.matchMedia) dark = !window.matchMedia('(prefers-color-scheme: light)').matches
+        else dark = true // 站点默认暗色
+        if (dark) document.documentElement.classList.add('dark')
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

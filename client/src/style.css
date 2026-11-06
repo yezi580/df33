@@ -1,0 +1,180 @@
+/* ============ 三角洲组队大厅 · 白天模式色板（默认） ============ */
+:root {
+  /* 站点色板 */
+  --dsh-bg: #eef1f5;
+  --dsh-bg-soft: #e3e8ee;
+  --dsh-panel: #ffffff;
+  --dsh-panel-2: #f6f8fa;
+  --dsh-border: #d3dce6;
+  --dsh-accent: #c47c00;
+  --dsh-accent-dim: #a06a00;
+  --dsh-voice: #0d8b8b;
+  --dsh-text: #1e2a36;
+  --dsh-dim: #5b6b7b;
+  --dsh-danger: #e5484d;
+
+  /* Element Plus 主题接管：琥珀主色 + EP 默认浅色底 */
+  --el-color-primary: #d97706;
+  --el-color-primary-light-3: #e09637;
+  --el-color-primary-light-5: #eab27c;
+  --el-color-primary-light-7: #f4cfb8;
+  --el-color-primary-light-8: #f8dfd2;
+  --el-color-primary-light-9: #faeedf;
+  --el-color-primary-dark-2: #b25e05;
+}
+
+/* ============ 黑夜模式色板（html.dark，战术暗色） ============ */
+html.dark {
+  /* 站点色板 */
+  --dsh-bg: #0c1116;
+  --dsh-bg-soft: #10161d;
+  --dsh-panel: #141c24;
+  --dsh-panel-2: #1a2430;
+  --dsh-border: #263241;
+  --dsh-accent: #ffb02e;
+  --dsh-accent-dim: #cc8d24;
+  --dsh-voice: #35c2c2;
+  --dsh-text: #d8e1ea;
+  --dsh-dim: #8a99a8;
+  --dsh-danger: #f56c6c;
+
+  /* Element Plus 主题接管 */
+  --el-color-primary: #ffb02e;
+  --el-color-primary-light-3: #ffc266;
+  --el-color-primary-light-5: #ffd08c;
+  --el-color-primary-light-7: #ffdfb3;
+  --el-color-primary-light-8: #ffe8c7;
+  --el-color-primary-light-9: #4a3a1d;
+  --el-color-primary-dark-2: #cc8d24;
+  --el-bg-color: #141c24;
+  --el-bg-color-overlay: #1a2430;
+  --el-bg-color-page: #0c1116;
+  --el-fill-color-blank: #141c24;
+  --el-fill-color-light: #1c2734;
+  --el-fill-color: #1a2531;
+  --el-fill-color-lighter: #18212d;
+  --el-border-color: #2a3849;
+  --el-border-color-light: #22303f;
+  --el-border-color-lighter: #1d2a38;
+  --el-text-color-primary: #d8e1ea;
+  --el-text-color-regular: #b9c4cf;
+  --el-text-color-secondary: #8a99a8;
+  --el-text-color-placeholder: #5d6b78;
+}
+
+/* 琥珀主色按钮用深色文字，保证对比度（两种模式按钮都是琥珀底） */
+.el-button--primary {
+  --el-button-text-color: #201503;
+  --el-button-hover-text-color: #201503;
+  --el-button-active-text-color: #201503;
+}
+.el-button--primary.is-text,
+.el-button--primary.is-link {
+  --el-button-text-color: var(--el-color-primary);
+  --el-button-hover-text-color: var(--el-color-primary-light-3);
+}
+
+/* 短页面（如第四阶段）也预留滚动条空间，避免页面切换时排版左右平移 */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* 自定义页面滚动条：同时将 Chromium 悬浮滚动条强制回经典占位型（自定义样式即退出 overlay 模式） */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+html::-webkit-scrollbar-track {
+  background: var(--dsh-bg-soft);
+}
+html::-webkit-scrollbar-thumb {
+  background: #2a3849;
+  border-radius: 5px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: #37475c;
+}
+html:not(.dark)::-webkit-scrollbar-thumb {
+  background: #b8c4d2;
+}
+html:not(.dark)::-webkit-scrollbar-thumb:hover {
+  background: #9aa9ba;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--dsh-bg);
+  color: var(--dsh-text);
+  font-family:
+    'Segoe UI',
+    'PingFang SC',
+    'Microsoft YaHei',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 400px at 70% -10%, rgba(255, 176, 46, 0.07), transparent),
+    radial-gradient(900px 500px at 0% 110%, rgba(53, 194, 194, 0.05), transparent),
+    var(--dsh-bg);
+}
+
+/* 战术风卡片：右上角切角 + 描边 */
+.tactical-card {
+  position: relative;
+  background: linear-gradient(160deg, var(--dsh-panel-2), var(--dsh-panel));
+  border: 1px solid var(--dsh-border);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  transition: border-color 0.2s, transform 0.15s;
+}
+.tactical-card--hover:hover {
+  border-color: var(--dsh-accent-dim);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--dsh-text);
+}
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: var(--dsh-accent);
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
+}
+
+/* 聊天消息滚动条 */
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #2a3849;
+  border-radius: 3px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+html:not(.dark) .thin-scroll::-webkit-scrollbar-thumb {
+  background: #b8c4d2;
+}
+
+/* 说话光环动画 */
+@keyframes speaking-pulse {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
